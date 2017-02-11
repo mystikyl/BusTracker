@@ -1,0 +1,132 @@
+/**
+ * 
+ */
+
+$().ready(init);
+function init(){
+    "use strict";
+    $("#SystemInfo").click(requestSystemInfo);
+	$("#RequestInfo").click(requestInfo);
+	$("#HTTPHeaders").click(requestHTTPHeaders);
+	$("#RequestParams").click(requestParams);
+}
+
+function requestSystemInfo() {
+    "use strict";
+    $("#display").html("");
+    $(".active").removeClass();
+    $("#SystemInfo").addClass("active");
+    $.ajax({
+        type: "get",
+        url : "/PeterMcNeely-Lab7/InfoService", // the url of the servlet returning the Ajax response
+        data : "info=system", // key and route, for example "key=ABCDEF123456789&rt=31"
+        dataType: "json",
+        success: handleSystemSuccess,
+        error: handleError
+    });
+}
+
+
+function requestHTTPHeaders(){
+    "use strict";
+    $("#display").html("");
+    $(".active").removeClass();
+    $("#HTTPHeaders").addClass("active");
+    $.ajax({
+        type: "get",
+        url : "/PeterMcNeely-Lab7/InfoService", // the url of the servlet returning the Ajax response
+        data : "info=headers", // key and route, for example "key=ABCDEF123456789&rt=31"
+        dataType: "json",
+        success: handleSuccess,
+        error: handleError
+    });
+}
+
+function requestParams(){
+    "use strict";
+    $("#display").html("");
+    $(".active").removeClass();
+    $("#RequestParams").addClass("active");
+    $.ajax({
+        type: "get",
+        url : "/PeterMcNeely-Lab7/InfoService", // the url of the servlet returning the Ajax response
+        data : "info=params", // key and route, for example "key=ABCDEF123456789&rt=31"
+        dataType: "json",
+        success: handleParamSuccess,
+        error: handleError
+    });
+}
+
+function requestInfo(){
+    "use strict";
+    $("#display").html("");
+    $(".active").removeClass("active");
+    $("#RequestInfo").addClass("active");
+    $.ajax({
+        type: "GET",
+        url : "/PeterMcNeely-Lab7/InfoService",
+        data : "info=request",
+        dataType: "json",
+        success: handleSuccess,
+        error: handleError
+    });
+}
+
+
+
+function handleSuccess( response, textStatus, jqXHR ) {
+    "use strict";
+    if(response["error"]){
+        alert(response.error);
+    } else if (response["status"] === "ok"){
+        let display = $("#display").html("");
+        let innerHTML = "<p>";
+        var data = response.data
+        let dataKeys = Object.keys(data);
+        for(var i=0; i<dataKeys.length;i++){
+        	innerHTML += "" + dataKeys[i] + " : "+ data[dataKeys[i]] +"<br>";
+        }
+        innerHTML += "</p>"
+        display.html(innerHTML)
+    }
+}
+
+function handleSystemSuccess( response, textStatus, jqXHR ) {
+	"use strict"
+	if(response["error"]){
+		alert(response.error);
+	} else if (response["status"] === "ok"){
+		let display = $("#display").html("");
+		let innerHTML= "<p>"
+		innerHTML += "The current date and time is "+ response.data.date +"<br>";
+		innerHTML += "The current thread is "+ response.data.thread +"<br>";
+		innerHTML += "The current java.home is "+ response.data.javaHome+"<br>";
+		innerHTML += "The current java.version is "+response.data.javaVersion+"<br>";
+		innerHTML += "The current java.runtime.name is "+ response.data.javaRuntimeName+"<br>"
+ 		innerHTML += "The current java.runtime.version is "+response.data.javaRuntimeVersion+"<br>";
+		innerHTML += "The current java.specification.version is "+response.data.javaSpecificationVerion+"<br>";
+		innerHTML += "The current java.vm.version is "+ response.data.javaVmMVersion+"<br>";
+		innerHTML += "The current os.name is "+response.data.osName+"<br></p>";
+		display.html(innerHTML)
+	}
+}
+
+function handleParamSuccess(response, textStatus, jqXHR){
+	"use strict";
+    if(response["error"]){
+        alert(response.error);
+    } else if (response["status"] ==="ok"){
+        let display = $("#display").html("");
+        let innerHTML = "";
+        for (let i = 0; i<response.data.length;i++){
+            innerHTML += response.data[i].name +" : " + response.data[i].value + "<br>"
+        }
+        display.html("<p>" + innerHTML + "</p>")
+    }
+
+}
+
+function handleError(jqXHR, textStatus, errorThrown) {
+    "use strict";
+
+}

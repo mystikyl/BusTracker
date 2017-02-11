@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Peter McNeely's info-serv</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="icon" href="http://www.clker.com/cliparts/Q/O/I/q/N/J/binary-data-md.png">
+	<script src="Info.js"></script>
+	<link rel="stylesheet" href="Info.css" type="text/css"/>
+</head>
+<body>
+<div class="jumbotron container-fluid">
+	<h1> Peter McNeely's InfoService</h1>
+</div>
+<div class="container-fluid">
+ 	<ul class="nav nav-pills nav-inverse">
+  		<li id ="SystemInfo" class="active"><a href="#">System Info</a></li>
+  		<li id="RequestInfo"><a href="#">Request Info</a></li>
+  		<li id="HTTPHeaders"><a href="#">HTTP Headers</a></li>
+  		<li id="RequestParams"><a href="#">Request Parameters</a></li>
+	</ul>
+<div id="display" class="text-center"> 
+</div>
+</div>
+</body>
+</html>

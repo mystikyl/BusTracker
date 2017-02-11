@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Peter McNeely's info-serv</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="icon" href="http://www.clker.com/cliparts/Q/O/I/q/N/J/binary-data-md.png">
+	<script src="Info.js"></script>
+	<link rel="stylesheet" href="Info.css" type="text/css"/>
+</head>
+<body>
+<div class="jumbotron container-fluid">
+	<h1> Peter McNeely's InfoService</h1>
+</div>
+
+<div class="container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    
+        <ul class="nav nav-pills nav-justified">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"><a href="#">System Info</a></li>
+          <li data-target="#myCarousel" data-slide-to="1"><a href="#">Request Info</a></li>
+          <li data-target="#myCarousel" data-slide-to="2"><a href="#">HTTP Headers</a></li>
+          <li data-target="#myCarousel" data-slide-to="3"><a href="#">Request Paramaters</a></li>
+        </ul>
+
+
+ 
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+      
+        <div class="item active">
+           <div class="carousel-caption">
+          </div>
+        </div><!-- End Item -->
+ 
+         <div class="item">
+           <div class="carousel-caption">
+            <h3>Headline</h3>
+            </div>
+        </div><!-- End Item -->
+        
+        <div class="item">
+           <div class="carousel-caption">
+            </div>
+        </div><!-- End Item -->
+        
+        <div class="item">
+           <div class="carousel-caption">
+            </div>
+        </div><!-- End Item -->
+                
+      </div><!-- End Carousel Inner -->
+
+
+</div>
+</div>
+</div>
+</body>
+</html>
